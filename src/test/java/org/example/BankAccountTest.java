@@ -62,7 +62,7 @@ class BankAccountTest {
         // when
         bankAccount.makeDeposit(deposit);
         // then
-        assertEquals(deposit, bankAccount.getAccountStatement());
+        assertEquals(deposit, bankAccount.getBalance());
     }
 
     /* US 2:
@@ -81,7 +81,7 @@ class BankAccountTest {
         bankAccount.makeDeposit(deposit);
         bankAccount.makeWithdrawal(withdrawal);
         // then
-        assertEquals(expectedAccountStatement, bankAccount.getAccountStatement());
+        assertEquals(expectedAccountStatement, bankAccount.getBalance());
     }
 
     /* US 3:

@@ -1,23 +1,38 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccount {
-    private int accountStatement = 0;
+    private int balance = 0;
+    private List<String> historyOfOperations = new ArrayList();
+
+    public BankAccount() {
+    }
 
     public void makeDeposit(int deposit) {
-        accountStatement += deposit;
+        balance += deposit;
+        StringBuilder operation = new StringBuilder();
+        operation.append("deposit")
+                .append(" | ")
+                .append(" 22/01/2020 ")
+                .append(" | ")
+                .append(deposit)
+                .append(" | ")
+                .append(balance);
+
+        historyOfOperations.add(operation.toString());
     }
 
     public void makeWithdrawal(int withdrawal) {
-        accountStatement -= withdrawal;
+        balance -= withdrawal;
     }
 
-    public int getAccountStatement() {
-        return accountStatement;
+    public int getBalance() {
+        return balance;
     }
 
     public List<String> getHistoryOfOperations() {
-        return List.of("");
+        return historyOfOperations;
     }
 }
