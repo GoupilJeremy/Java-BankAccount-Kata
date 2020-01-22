@@ -7,7 +7,7 @@ public class BankAccount {
     }
 
     public void makeWithdrawal(int withdrawal) {
-
+        accountStatement -= withdrawal;
     }
 
     public int getAccountStatement() {
