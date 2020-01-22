@@ -1,5 +1,7 @@
 package org.example;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,9 @@ public class BankAccount {
     public void makeDeposit(int deposit) {
         balance += deposit;
 
-        String operation = createOperation("deposit", "22/01/2020", deposit, balance);
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String operation = createOperation("deposit", localDate.format(formatter), deposit, balance);
 
         historyOfOperations.add(operation);
     }
@@ -21,7 +25,9 @@ public class BankAccount {
     public void makeWithdrawal(int withdrawal) {
         balance -= withdrawal;
 
-        String operation = createOperation("withdrawal", "22/01/2020", withdrawal, balance);
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String operation = createOperation("withdrawal", localDate.format(formatter), withdrawal, balance);
         historyOfOperations.add(operation);
     }
 
