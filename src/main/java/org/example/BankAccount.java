@@ -12,20 +12,31 @@ public class BankAccount {
 
     public void makeDeposit(int deposit) {
         balance += deposit;
-        StringBuilder operation = new StringBuilder();
-        operation.append("deposit")
-                .append(" | ")
-                .append(" 22/01/2020 ")
-                .append(" | ")
-                .append(deposit)
-                .append(" | ")
-                .append(balance);
 
-        historyOfOperations.add(operation.toString());
+        String operation = createOperation("deposit", "22/01/2020", deposit, balance);
+
+        historyOfOperations.add(operation);
     }
 
     public void makeWithdrawal(int withdrawal) {
         balance -= withdrawal;
+
+        String operation = createOperation("withdrawal", "22/01/2020", withdrawal, balance);
+        historyOfOperations.add(operation);
+    }
+
+    public String createOperation(String operationName, String dateOfTheDay, int amount, int balance) {
+        final String SEPARATOR = " | ";
+        StringBuilder operation = new StringBuilder();
+
+        return operation.append(operationName)
+                .append(SEPARATOR)
+                .append(dateOfTheDay)
+                .append(SEPARATOR)
+                .append(amount)
+                .append(SEPARATOR)
+                .append(balance)
+                .toString();
     }
 
     public int getBalance() {
