@@ -61,4 +61,23 @@ class BankAccountTest {
         // then
         assertEquals(deposit, bankAccount.getAccountStatement());
     }
+
+    /* US 2:
+    * In order to retrieve some or all of my savings
+    * As a bank client
+    * I want to make a withdrawal from my account
+    */
+    @Test
+    void shouldMakeAWithdrawalFromMyAccount(){
+        // given
+        BankAccount bankAccount = new BankAccount();
+        int deposit = 100;
+        int withdrawal = 20;
+        int expectedAccountStatement = 80;
+        // when
+        bankAccount.makeDeposit(deposit);
+        bankAccount.makeWithdrawal(withdrawal);
+        // then
+        assertEquals(expectedAccountStatement, bankAccount.getAccountStatement());
+    }
 }

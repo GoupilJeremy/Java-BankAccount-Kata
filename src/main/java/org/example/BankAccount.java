@@ -6,6 +6,10 @@ public class BankAccount {
         accountStatement += deposit;
     }
 
+    public void makeWithdrawal(int withdrawal) {
+
+    }
+
     public int getAccountStatement() {
         return accountStatement;
     }
