@@ -52,9 +52,10 @@ class BankAccountTest {
     * I want to make a deposit in my account
     */
     @Test
-    void shouldMakeADepositInMyAccount(int deposit){
+    void shouldMakeADepositInMyAccount(){
         // given
         BankAccount bankAccount = new BankAccount();
+        int deposit = 100;
         // when
         bankAccount.makeDeposit(deposit);
         // then
