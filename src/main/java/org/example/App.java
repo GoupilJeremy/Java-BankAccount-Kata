@@ -1,14 +1,19 @@
 package org.example;
 
 /**
- * Hello world!
+ * Bank Account Kata Main class
  *
  */
 public class App 
 {
     public static void main( String[] args )
     {
+        BankAccount bankAccount = new BankAccount();
 
-        System.out.println( "Hello World!" );
+        bankAccount.makeDeposit(100);
+
+        bankAccount.makeWithdrawal(20);
+
+        bankAccount.showMeHistoryOfOperations();
     }
 }

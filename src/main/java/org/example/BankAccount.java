@@ -65,4 +65,9 @@ public class BankAccount {
     public List<String> getHistoryOfOperations() {
         return historyOfOperations;
     }
+
+    public void showMeHistoryOfOperations() {
+        getHistoryOfOperations()
+                .forEach(System.out::println);
+    }
 }
