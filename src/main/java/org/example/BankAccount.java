@@ -1,7 +1,10 @@
 package org.example;
 
+import java.util.List;
+
 public class BankAccount {
     private int accountStatement = 0;
+
     public void makeDeposit(int deposit) {
         accountStatement += deposit;
     }
@@ -12,5 +15,9 @@ public class BankAccount {
 
     public int getAccountStatement() {
         return accountStatement;
+    }
+
+    public List<String> getHistoryOfOperations() {
+        return List.of("");
     }
 }

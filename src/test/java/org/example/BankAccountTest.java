@@ -1,6 +1,9 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -79,5 +82,24 @@ class BankAccountTest {
         bankAccount.makeWithdrawal(withdrawal);
         // then
         assertEquals(expectedAccountStatement, bankAccount.getAccountStatement());
+    }
+
+    /* US 3:
+     * In order to check my operations
+     * As a bank client
+     * I want to see the history (operation, date, amount, balance)  of my operations
+     */
+    @Test
+    void shouldSeeTheHistoryOfMyOperations(){
+        // given
+        BankAccount bankAccount = new BankAccount();
+        int deposit = 100;
+        int withdrawal = 20;
+        List<String> expectedHistory = List.of("deposit | 22/01/2020 | 100 | 100", "withdrawal | 22/01/2020 | 20 | 80");
+        // when
+        bankAccount.makeDeposit(deposit);
+        bankAccount.makeWithdrawal(withdrawal);
+        // then
+        assertEquals(expectedHistory, bankAccount.getHistoryOfOperations());
     }
 }
