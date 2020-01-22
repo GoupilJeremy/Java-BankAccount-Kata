@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BankAccount {
     private int balance = 0;
-    private List<String> historyOfOperations = new ArrayList();
+    private ArrayList historyOfOperations = new ArrayList();
 
     public BankAccount() {
     }
@@ -15,9 +15,12 @@ public class BankAccount {
     public void makeDeposit(int deposit) {
         balance += deposit;
 
-        LocalDate localDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String operation = createOperation("deposit", localDate.format(formatter), deposit, balance);
+        String operation = createOperation(
+                "deposit",
+                getDateOfTodayFormatted(),
+                deposit,
+                balance
+        );
 
         historyOfOperations.add(operation);
     }
@@ -25,13 +28,23 @@ public class BankAccount {
     public void makeWithdrawal(int withdrawal) {
         balance -= withdrawal;
 
-        LocalDate localDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String operation = createOperation("withdrawal", localDate.format(formatter), withdrawal, balance);
+        String operation = createOperation(
+                "withdrawal",
+                getDateOfTodayFormatted(),
+                withdrawal,
+                balance
+        );
         historyOfOperations.add(operation);
     }
 
-    public String createOperation(String operationName, String dateOfTheDay, int amount, int balance) {
+    private String getDateOfTodayFormatted(){
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        return localDate.format(formatter);
+    }
+
+    private String createOperation(String operationName, String dateOfTheDay, int amount, int balance) {
         final String SEPARATOR = " | ";
         StringBuilder operation = new StringBuilder();
 
