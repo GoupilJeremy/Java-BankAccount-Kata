@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="java-bank-account-kata" />
         <module name="java-kata" />
+        <module name="Java-BankAccount-Kata" />
       </profile>
     </annotationProcessing>
   </component>

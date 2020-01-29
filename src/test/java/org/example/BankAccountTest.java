@@ -33,11 +33,9 @@ class BankAccountTest {
     void shouldMakeAWithdrawalFromMyAccount(){
         // given
         BankAccount bankAccount = new BankAccount();
-        int deposit = 100;
         int withdrawal = 20;
-        int expectedAccountStatement = 80;
+        int expectedAccountStatement = -20;
         // when
-        bankAccount.makeDeposit(deposit);
         bankAccount.makeWithdrawal(withdrawal);
         // then
         assertEquals(expectedAccountStatement, bankAccount.getBalance());
@@ -54,7 +52,7 @@ class BankAccountTest {
         BankAccount bankAccount = new BankAccount();
         int deposit = 100;
         int withdrawal = 20;
-        List<String> expectedHistory = List.of("deposit | 22/01/2020 | 100 | 100", "withdrawal | 22/01/2020 | 20 | 80");
+        List<String> expectedHistory = List.of("deposit | 29/01/2020 | 100 | 100", "withdrawal | 29/01/2020 | 20 | 80");
         // when
         bankAccount.makeDeposit(deposit);
         bankAccount.makeWithdrawal(withdrawal);
